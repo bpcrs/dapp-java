@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: com.cloudant:cloudant-http:2.18.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/cloudant/cloudant-http/2.18.0/cloudant-http-2.18.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

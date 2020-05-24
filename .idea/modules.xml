@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/fabcar-java.iml" filepath="$PROJECT_DIR$/fabcar-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabcar-java.iml" filepath="$PROJECT_DIR$/.idea/modules/fabcar-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabcar-java.main.iml" filepath="$PROJECT_DIR$/.idea/modules/fabcar-java.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabcar-java.test.iml" filepath="$PROJECT_DIR$/.idea/modules/fabcar-java.test.iml" />
     </modules>
   </component>
 </project>
