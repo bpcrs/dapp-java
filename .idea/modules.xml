@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabcar-java.iml" filepath="$PROJECT_DIR$/.idea/modules/fabcar-java.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabcar-java.main.iml" filepath="$PROJECT_DIR$/.idea/modules/fabcar-java.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabcar-java.test.iml" filepath="$PROJECT_DIR$/.idea/modules/fabcar-java.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dapp-java.iml" filepath="$PROJECT_DIR$/.idea/modules/dapp-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dapp-java.main.iml" filepath="$PROJECT_DIR$/.idea/modules/dapp-java.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dapp-java.test.iml" filepath="$PROJECT_DIR$/.idea/modules/dapp-java.test.iml" />
     </modules>
   </component>
 </project>
