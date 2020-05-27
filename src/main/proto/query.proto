@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package proto;
+
+option java_multiple_files = false;
+option java_package = "generated";
+option java_outer_classname = "QueryProto";
+
+// The greeting service definition.
+service QueryService {
+  // Sends a greeting
+  rpc sendQuery (QueryRequest) returns (QueryResponse) {}
+}
+
+// The request message containing the user's name.
+message QueryRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message QueryResponse {
+  string message = 1;
+}

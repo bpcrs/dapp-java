@@ -10,8 +10,7 @@ public class ClientTest {
 
 	@Test
 	public void testFabCar() throws Exception {
-		EnrollAdmin.main(null);
-		RegisterUser.main(null);
-		ClientApp.main(null);
+//		EnrollAdmin.main(null);
+//		ClientApp.main(null);
 	}
 }

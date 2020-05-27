@@ -20,7 +20,6 @@ public class EnrollAdmin {
 
 	public static void main(String[] args) throws Exception {
 		HFCAClient caClient = HFHelper.getCAClient();
-		HFHelper.registerUser("hungpt");
 		// Create a wallet for managing identities
 		Wallet wallet = Wallets.newFileSystemWallet(Paths.get("wallet"));
 
