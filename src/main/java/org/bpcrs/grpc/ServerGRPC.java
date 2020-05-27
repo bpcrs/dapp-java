@@ -8,6 +8,7 @@ import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import org.apache.log4j.BasicConfigurator;
 import org.bpcrs.hepler.HFHelper;
+import org.bpcrs.services.InvokeService;
 import org.bpcrs.services.QueryService;
 
 import java.io.IOException;
@@ -25,7 +26,7 @@ public class ServerGRPC {
         int port = Integer.parseInt(System.getProperty("grpc.port"));
         logger.info("Starting the gRPC server");
         server = ServerBuilder.forPort(port)
-                .addService(new QueryService())
+                .addService(new QueryService()).addService(new InvokeService())
                 .build()
                 .start();
 

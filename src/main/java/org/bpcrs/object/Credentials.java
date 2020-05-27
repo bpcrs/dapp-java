@@ -1,6 +1,7 @@
 package org.bpcrs.object;
 
 import javax.xml.bind.DatatypeConverter;
+import java.io.Serializable;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
@@ -9,7 +10,7 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 
-public class Credentials {
+public class Credentials implements Serializable {
     private String certificate;
     private String privateKey;
 

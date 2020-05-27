@@ -1,6 +1,8 @@
 package org.bpcrs.object;
 
-public class UserCertificate {
+import java.io.Serializable;
+
+public class UserCertificate implements Serializable {
     private String username;
     private int version;
     private String mspId;

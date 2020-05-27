@@ -19,16 +19,77 @@ public final class QueryProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string name = 1;</code>
-     * @return The name.
+     * <code>string chaincode = 1;</code>
+     * @return The chaincode.
      */
-    java.lang.String getName();
+    java.lang.String getChaincode();
     /**
-     * <code>string name = 1;</code>
-     * @return The bytes for name.
+     * <code>string chaincode = 1;</code>
+     * @return The bytes for chaincode.
      */
     com.google.protobuf.ByteString
-        getNameBytes();
+        getChaincodeBytes();
+
+    /**
+     * <code>string channel = 2;</code>
+     * @return The channel.
+     */
+    java.lang.String getChannel();
+    /**
+     * <code>string channel = 2;</code>
+     * @return The bytes for channel.
+     */
+    com.google.protobuf.ByteString
+        getChannelBytes();
+
+    /**
+     * <code>string username = 3;</code>
+     * @return The username.
+     */
+    java.lang.String getUsername();
+    /**
+     * <code>string username = 3;</code>
+     * @return The bytes for username.
+     */
+    com.google.protobuf.ByteString
+        getUsernameBytes();
+
+    /**
+     * <code>string funcName = 4;</code>
+     * @return The funcName.
+     */
+    java.lang.String getFuncName();
+    /**
+     * <code>string funcName = 4;</code>
+     * @return The bytes for funcName.
+     */
+    com.google.protobuf.ByteString
+        getFuncNameBytes();
+
+    /**
+     * <code>repeated string args = 5;</code>
+     * @return A list containing the args.
+     */
+    java.util.List<java.lang.String>
+        getArgsList();
+    /**
+     * <code>repeated string args = 5;</code>
+     * @return The count of args.
+     */
+    int getArgsCount();
+    /**
+     * <code>repeated string args = 5;</code>
+     * @param index The index of the element to return.
+     * @return The args at the given index.
+     */
+    java.lang.String getArgs(int index);
+    /**
+     * <code>repeated string args = 5;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the args at the given index.
+     */
+    com.google.protobuf.ByteString
+        getArgsBytes(int index);
   }
   /**
    * <pre>
@@ -47,7 +108,11 @@ public final class QueryProto {
       super(builder);
     }
     private QueryRequest() {
-      name_ = "";
+      chaincode_ = "";
+      channel_ = "";
+      username_ = "";
+      funcName_ = "";
+      args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -70,6 +135,7 @@ public final class QueryProto {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -83,7 +149,34 @@ public final class QueryProto {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              name_ = s;
+              chaincode_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channel_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              username_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              funcName_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                args_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              args_.add(s);
               break;
             }
             default: {
@@ -101,6 +194,9 @@ public final class QueryProto {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          args_ = args_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -118,42 +214,191 @@ public final class QueryProto {
               generated.QueryProto.QueryRequest.class, generated.QueryProto.QueryRequest.Builder.class);
     }
 
-    public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    public static final int CHAINCODE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object chaincode_;
     /**
-     * <code>string name = 1;</code>
-     * @return The name.
+     * <code>string chaincode = 1;</code>
+     * @return The chaincode.
      */
     @java.lang.Override
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
+    public java.lang.String getChaincode() {
+      java.lang.Object ref = chaincode_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        name_ = s;
+        chaincode_ = s;
         return s;
       }
     }
     /**
-     * <code>string name = 1;</code>
-     * @return The bytes for name.
+     * <code>string chaincode = 1;</code>
+     * @return The bytes for chaincode.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
+        getChaincodeBytes() {
+      java.lang.Object ref = chaincode_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        name_ = b;
+        chaincode_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int CHANNEL_FIELD_NUMBER = 2;
+    private volatile java.lang.Object channel_;
+    /**
+     * <code>string channel = 2;</code>
+     * @return The channel.
+     */
+    @java.lang.Override
+    public java.lang.String getChannel() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        channel_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string channel = 2;</code>
+     * @return The bytes for channel.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getChannelBytes() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        channel_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USERNAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object username_;
+    /**
+     * <code>string username = 3;</code>
+     * @return The username.
+     */
+    @java.lang.Override
+    public java.lang.String getUsername() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        username_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string username = 3;</code>
+     * @return The bytes for username.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUsernameBytes() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        username_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FUNCNAME_FIELD_NUMBER = 4;
+    private volatile java.lang.Object funcName_;
+    /**
+     * <code>string funcName = 4;</code>
+     * @return The funcName.
+     */
+    @java.lang.Override
+    public java.lang.String getFuncName() {
+      java.lang.Object ref = funcName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        funcName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string funcName = 4;</code>
+     * @return The bytes for funcName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFuncNameBytes() {
+      java.lang.Object ref = funcName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        funcName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ARGS_FIELD_NUMBER = 5;
+    private com.google.protobuf.LazyStringList args_;
+    /**
+     * <code>repeated string args = 5;</code>
+     * @return A list containing the args.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getArgsList() {
+      return args_;
+    }
+    /**
+     * <code>repeated string args = 5;</code>
+     * @return The count of args.
+     */
+    public int getArgsCount() {
+      return args_.size();
+    }
+    /**
+     * <code>repeated string args = 5;</code>
+     * @param index The index of the element to return.
+     * @return The args at the given index.
+     */
+    public java.lang.String getArgs(int index) {
+      return args_.get(index);
+    }
+    /**
+     * <code>repeated string args = 5;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the args at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getArgsBytes(int index) {
+      return args_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -170,8 +415,20 @@ public final class QueryProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      if (!getChaincodeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, chaincode_);
+      }
+      if (!getChannelBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channel_);
+      }
+      if (!getUsernameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, username_);
+      }
+      if (!getFuncNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, funcName_);
+      }
+      for (int i = 0; i < args_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, args_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -182,8 +439,25 @@ public final class QueryProto {
       if (size != -1) return size;
 
       size = 0;
-      if (!getNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      if (!getChaincodeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, chaincode_);
+      }
+      if (!getChannelBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channel_);
+      }
+      if (!getUsernameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, username_);
+      }
+      if (!getFuncNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, funcName_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < args_.size(); i++) {
+          dataSize += computeStringSizeNoTag(args_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getArgsList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -200,8 +474,16 @@ public final class QueryProto {
       }
       generated.QueryProto.QueryRequest other = (generated.QueryProto.QueryRequest) obj;
 
-      if (!getName()
-          .equals(other.getName())) return false;
+      if (!getChaincode()
+          .equals(other.getChaincode())) return false;
+      if (!getChannel()
+          .equals(other.getChannel())) return false;
+      if (!getUsername()
+          .equals(other.getUsername())) return false;
+      if (!getFuncName()
+          .equals(other.getFuncName())) return false;
+      if (!getArgsList()
+          .equals(other.getArgsList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -213,8 +495,18 @@ public final class QueryProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + CHAINCODE_FIELD_NUMBER;
+      hash = (53 * hash) + getChaincode().hashCode();
+      hash = (37 * hash) + CHANNEL_FIELD_NUMBER;
+      hash = (53 * hash) + getChannel().hashCode();
+      hash = (37 * hash) + USERNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getUsername().hashCode();
+      hash = (37 * hash) + FUNCNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFuncName().hashCode();
+      if (getArgsCount() > 0) {
+        hash = (37 * hash) + ARGS_FIELD_NUMBER;
+        hash = (53 * hash) + getArgsList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -352,8 +644,16 @@ public final class QueryProto {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        name_ = "";
+        chaincode_ = "";
 
+        channel_ = "";
+
+        username_ = "";
+
+        funcName_ = "";
+
+        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -380,7 +680,16 @@ public final class QueryProto {
       @java.lang.Override
       public generated.QueryProto.QueryRequest buildPartial() {
         generated.QueryProto.QueryRequest result = new generated.QueryProto.QueryRequest(this);
-        result.name_ = name_;
+        int from_bitField0_ = bitField0_;
+        result.chaincode_ = chaincode_;
+        result.channel_ = channel_;
+        result.username_ = username_;
+        result.funcName_ = funcName_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          args_ = args_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.args_ = args_;
         onBuilt();
         return result;
       }
@@ -429,8 +738,30 @@ public final class QueryProto {
 
       public Builder mergeFrom(generated.QueryProto.QueryRequest other) {
         if (other == generated.QueryProto.QueryRequest.getDefaultInstance()) return this;
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
+        if (!other.getChaincode().isEmpty()) {
+          chaincode_ = other.chaincode_;
+          onChanged();
+        }
+        if (!other.getChannel().isEmpty()) {
+          channel_ = other.channel_;
+          onChanged();
+        }
+        if (!other.getUsername().isEmpty()) {
+          username_ = other.username_;
+          onChanged();
+        }
+        if (!other.getFuncName().isEmpty()) {
+          funcName_ = other.funcName_;
+          onChanged();
+        }
+        if (!other.args_.isEmpty()) {
+          if (args_.isEmpty()) {
+            args_ = other.args_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureArgsIsMutable();
+            args_.addAll(other.args_);
+          }
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -461,79 +792,418 @@ public final class QueryProto {
         }
         return this;
       }
+      private int bitField0_;
 
-      private java.lang.Object name_ = "";
+      private java.lang.Object chaincode_ = "";
       /**
-       * <code>string name = 1;</code>
-       * @return The name.
+       * <code>string chaincode = 1;</code>
+       * @return The chaincode.
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
+      public java.lang.String getChaincode() {
+        java.lang.Object ref = chaincode_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          name_ = s;
+          chaincode_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string name = 1;</code>
-       * @return The bytes for name.
+       * <code>string chaincode = 1;</code>
+       * @return The bytes for chaincode.
        */
       public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
+          getChaincodeBytes() {
+        java.lang.Object ref = chaincode_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          name_ = b;
+          chaincode_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string name = 1;</code>
-       * @param value The name to set.
+       * <code>string chaincode = 1;</code>
+       * @param value The chaincode to set.
        * @return This builder for chaining.
        */
-      public Builder setName(
+      public Builder setChaincode(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        name_ = value;
+        chaincode_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string chaincode = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearName() {
+      public Builder clearChaincode() {
         
-        name_ = getDefaultInstance().getName();
+        chaincode_ = getDefaultInstance().getChaincode();
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 1;</code>
-       * @param value The bytes for name to set.
+       * <code>string chaincode = 1;</code>
+       * @param value The bytes for chaincode to set.
        * @return This builder for chaining.
        */
-      public Builder setNameBytes(
+      public Builder setChaincodeBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        name_ = value;
+        chaincode_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object channel_ = "";
+      /**
+       * <code>string channel = 2;</code>
+       * @return The channel.
+       */
+      public java.lang.String getChannel() {
+        java.lang.Object ref = channel_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          channel_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string channel = 2;</code>
+       * @return The bytes for channel.
+       */
+      public com.google.protobuf.ByteString
+          getChannelBytes() {
+        java.lang.Object ref = channel_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          channel_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string channel = 2;</code>
+       * @param value The channel to set.
+       * @return This builder for chaining.
+       */
+      public Builder setChannel(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        channel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearChannel() {
+        
+        channel_ = getDefaultInstance().getChannel();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 2;</code>
+       * @param value The bytes for channel to set.
+       * @return This builder for chaining.
+       */
+      public Builder setChannelBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        channel_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object username_ = "";
+      /**
+       * <code>string username = 3;</code>
+       * @return The username.
+       */
+      public java.lang.String getUsername() {
+        java.lang.Object ref = username_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          username_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string username = 3;</code>
+       * @return The bytes for username.
+       */
+      public com.google.protobuf.ByteString
+          getUsernameBytes() {
+        java.lang.Object ref = username_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          username_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string username = 3;</code>
+       * @param value The username to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUsername(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        username_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string username = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUsername() {
+        
+        username_ = getDefaultInstance().getUsername();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string username = 3;</code>
+       * @param value The bytes for username to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUsernameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        username_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object funcName_ = "";
+      /**
+       * <code>string funcName = 4;</code>
+       * @return The funcName.
+       */
+      public java.lang.String getFuncName() {
+        java.lang.Object ref = funcName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          funcName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string funcName = 4;</code>
+       * @return The bytes for funcName.
+       */
+      public com.google.protobuf.ByteString
+          getFuncNameBytes() {
+        java.lang.Object ref = funcName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          funcName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string funcName = 4;</code>
+       * @param value The funcName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFuncName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        funcName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string funcName = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFuncName() {
+        
+        funcName_ = getDefaultInstance().getFuncName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string funcName = 4;</code>
+       * @param value The bytes for funcName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFuncNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        funcName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureArgsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          args_ = new com.google.protobuf.LazyStringArrayList(args_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       * @return A list containing the args.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getArgsList() {
+        return args_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       * @return The count of args.
+       */
+      public int getArgsCount() {
+        return args_.size();
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       * @param index The index of the element to return.
+       * @return The args at the given index.
+       */
+      public java.lang.String getArgs(int index) {
+        return args_.get(index);
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the args at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getArgsBytes(int index) {
+        return args_.getByteString(index);
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       * @param index The index to set the value at.
+       * @param value The args to set.
+       * @return This builder for chaining.
+       */
+      public Builder setArgs(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArgsIsMutable();
+        args_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       * @param value The args to add.
+       * @return This builder for chaining.
+       */
+      public Builder addArgs(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArgsIsMutable();
+        args_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       * @param values The args to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllArgs(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureArgsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, args_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearArgs() {
+        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       * @param value The bytes of the args to add.
+       * @return This builder for chaining.
+       */
+      public Builder addArgsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureArgsIsMutable();
+        args_.add(value);
         onChanged();
         return this;
       }
@@ -605,6 +1275,24 @@ public final class QueryProto {
      */
     com.google.protobuf.ByteString
         getMessageBytes();
+
+    /**
+     * <code>string data = 2;</code>
+     * @return The data.
+     */
+    java.lang.String getData();
+    /**
+     * <code>string data = 2;</code>
+     * @return The bytes for data.
+     */
+    com.google.protobuf.ByteString
+        getDataBytes();
+
+    /**
+     * <code>int32 code = 3;</code>
+     * @return The code.
+     */
+    int getCode();
   }
   /**
    * <pre>
@@ -624,6 +1312,7 @@ public final class QueryProto {
     }
     private QueryResponse() {
       message_ = "";
+      data_ = "";
     }
 
     @java.lang.Override
@@ -660,6 +1349,17 @@ public final class QueryProto {
               java.lang.String s = input.readStringRequireUtf8();
 
               message_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              data_ = s;
+              break;
+            }
+            case 24: {
+
+              code_ = input.readInt32();
               break;
             }
             default: {
@@ -732,6 +1432,55 @@ public final class QueryProto {
       }
     }
 
+    public static final int DATA_FIELD_NUMBER = 2;
+    private volatile java.lang.Object data_;
+    /**
+     * <code>string data = 2;</code>
+     * @return The data.
+     */
+    @java.lang.Override
+    public java.lang.String getData() {
+      java.lang.Object ref = data_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        data_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string data = 2;</code>
+     * @return The bytes for data.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDataBytes() {
+      java.lang.Object ref = data_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        data_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CODE_FIELD_NUMBER = 3;
+    private int code_;
+    /**
+     * <code>int32 code = 3;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -749,6 +1498,12 @@ public final class QueryProto {
       if (!getMessageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
       }
+      if (!getDataBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, data_);
+      }
+      if (code_ != 0) {
+        output.writeInt32(3, code_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -760,6 +1515,13 @@ public final class QueryProto {
       size = 0;
       if (!getMessageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
+      }
+      if (!getDataBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, data_);
+      }
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, code_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -778,6 +1540,10 @@ public final class QueryProto {
 
       if (!getMessage()
           .equals(other.getMessage())) return false;
+      if (!getData()
+          .equals(other.getData())) return false;
+      if (getCode()
+          != other.getCode()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -791,6 +1557,10 @@ public final class QueryProto {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getMessage().hashCode();
+      hash = (37 * hash) + DATA_FIELD_NUMBER;
+      hash = (53 * hash) + getData().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -930,6 +1700,10 @@ public final class QueryProto {
         super.clear();
         message_ = "";
 
+        data_ = "";
+
+        code_ = 0;
+
         return this;
       }
 
@@ -957,6 +1731,8 @@ public final class QueryProto {
       public generated.QueryProto.QueryResponse buildPartial() {
         generated.QueryProto.QueryResponse result = new generated.QueryProto.QueryResponse(this);
         result.message_ = message_;
+        result.data_ = data_;
+        result.code_ = code_;
         onBuilt();
         return result;
       }
@@ -1008,6 +1784,13 @@ public final class QueryProto {
         if (!other.getMessage().isEmpty()) {
           message_ = other.message_;
           onChanged();
+        }
+        if (!other.getData().isEmpty()) {
+          data_ = other.data_;
+          onChanged();
+        }
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1113,6 +1896,113 @@ public final class QueryProto {
         onChanged();
         return this;
       }
+
+      private java.lang.Object data_ = "";
+      /**
+       * <code>string data = 2;</code>
+       * @return The data.
+       */
+      public java.lang.String getData() {
+        java.lang.Object ref = data_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          data_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string data = 2;</code>
+       * @return The bytes for data.
+       */
+      public com.google.protobuf.ByteString
+          getDataBytes() {
+        java.lang.Object ref = data_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          data_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string data = 2;</code>
+       * @param value The data to set.
+       * @return This builder for chaining.
+       */
+      public Builder setData(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        data_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string data = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearData() {
+        
+        data_ = getDefaultInstance().getData();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string data = 2;</code>
+       * @param value The bytes for data to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDataBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        data_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 3;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 3;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1185,11 +2075,14 @@ public final class QueryProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013query.proto\022\005proto\"\034\n\014QueryRequest\022\014\n\004" +
-      "name\030\001 \001(\t\" \n\rQueryResponse\022\017\n\007message\030\001" +
-      " \001(\t2H\n\014QueryService\0228\n\tsendQuery\022\023.prot" +
-      "o.QueryRequest\032\024.proto.QueryResponse\"\000B\031" +
-      "\n\tgeneratedB\nQueryProtoP\000b\006proto3"
+      "\n\013query.proto\022\005proto\"d\n\014QueryRequest\022\021\n\t" +
+      "chaincode\030\001 \001(\t\022\017\n\007channel\030\002 \001(\t\022\020\n\010user" +
+      "name\030\003 \001(\t\022\020\n\010funcName\030\004 \001(\t\022\014\n\004args\030\005 \003" +
+      "(\t\"<\n\rQueryResponse\022\017\n\007message\030\001 \001(\t\022\014\n\004" +
+      "data\030\002 \001(\t\022\014\n\004code\030\003 \001(\0052H\n\014QueryService" +
+      "\0228\n\tsendQuery\022\023.proto.QueryRequest\032\024.pro" +
+      "to.QueryResponse\"\000B\031\n\tgeneratedB\nQueryPr" +
+      "otoP\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1200,13 +2093,13 @@ public final class QueryProto {
     internal_static_proto_QueryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_QueryRequest_descriptor,
-        new java.lang.String[] { "Name", });
+        new java.lang.String[] { "Chaincode", "Channel", "Username", "FuncName", "Args", });
     internal_static_proto_QueryResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_proto_QueryResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_QueryResponse_descriptor,
-        new java.lang.String[] { "Message", });
+        new java.lang.String[] { "Message", "Data", "Code", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
