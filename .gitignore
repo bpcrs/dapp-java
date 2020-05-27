@@ -5,3 +5,5 @@
 .project
 wallet
 !wallet/.gitkeep
+
+/build
