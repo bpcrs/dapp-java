@@ -18,18 +18,18 @@ import java.util.logging.Logger;
 
 public class ServerGRPC {
 
-    private int port = 42420;
     private Server server;
     private static final Logger logger = Logger.getLogger(ServerGRPC.class.getName());
 
     private void start() throws Exception {
-        logger.info("Starting the grpc server");
+        int port = Integer.parseInt(System.getProperty("grpc.port"));
+        logger.info("Starting the gRPC server");
         server = ServerBuilder.forPort(port)
                 .addService(new QueryService())
                 .build()
                 .start();
 
-        logger.info("Server started. Listening on port " + port);
+        logger.info("Server started. Listening on grpc://localhost:" + port);
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             System.err.println("*** JVM is shutting down. Turning off grpc server as well ***");
@@ -46,7 +46,6 @@ public class ServerGRPC {
 
     public static void main(String[] args) throws Exception {
         BasicConfigurator.configure();
-        logger.info("Server startup. Args = " + Arrays.toString(args));
         final ServerGRPC serverGRPC = new ServerGRPC();
         serverGRPC.start();
         serverGRPC.blockUntilShutdown();
