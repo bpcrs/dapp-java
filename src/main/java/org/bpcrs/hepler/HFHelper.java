@@ -3,10 +3,7 @@ package org.bpcrs.hepler;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.bpcrs.object.HFUser;
 import org.bpcrs.object.UserCertificate;
-import org.hyperledger.fabric.gateway.Identities;
-import org.hyperledger.fabric.gateway.Identity;
-import org.hyperledger.fabric.gateway.Wallet;
-import org.hyperledger.fabric.gateway.Wallets;
+import org.hyperledger.fabric.gateway.*;
 import org.hyperledger.fabric.sdk.Enrollment;
 import org.hyperledger.fabric.sdk.User;
 import org.hyperledger.fabric.sdk.security.CryptoSuite;
@@ -16,6 +13,7 @@ import org.hyperledger.fabric_ca.sdk.RegistrationRequest;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -26,6 +24,7 @@ public class HFHelper {
     private static final String PEM_FILE_PATH = System.getProperty("pem.file");
     private static final String CA_URL = System.getProperty("ca.url");
     private static final String ADMIN_USERNAME = "admin";
+    private static final String NETWORK_PATH = System.getProperty("network.config.path");
 
     // Create a CA client for interacting with the CA.
     public static HFCAClient getCAClient() throws Exception {
@@ -75,5 +74,40 @@ public class HFHelper {
         if (!path.toFile().exists()) return null;
         File file = new File(path.toString());
         return new ObjectMapper().readValue(file,UserCertificate.class);
+    }
+
+
+    public static String queryChaincode(String username, String channel, String chaincodeId, String funcName, String... args) throws Exception {
+        // Load a file system based wallet for managing identities.
+        Path walletPath = Paths.get("wallet");
+        Wallet wallet = Wallets.newFileSystemWallet(walletPath);
+        // load a CCP
+        Path networkConfigPath = Paths.get(NETWORK_PATH);
+
+        Gateway.Builder builder = Gateway.createBuilder();
+
+        builder.identity(wallet, username).networkConfig(networkConfigPath).discovery(true);
+
+        try (Gateway gateway = builder.connect()) {
+
+            // get the network and contract
+            Network network = gateway.getNetwork(channel);
+            Contract contract = network.getContract(chaincodeId);
+
+            byte[] result;
+//
+//			result = contract.evaluateTransaction("queryAllCars");
+//			System.out.println(new String(result));
+//
+//			contract.submitTransaction("createCar", "CAR10", "VW", "Polo", "Grey", "Mary");
+////
+//			result = contract.evaluateTransaction("queryCar", "CAR10");
+//			System.out.println(new String(result));
+//
+//            contract.submitTransaction("changeCarOwner", "CAR10", "HungPT");
+            result = contract.evaluateTransaction(funcName,args);
+            System.out.println(new String(result));
+            return new String(result);
+        }
     }
 }
