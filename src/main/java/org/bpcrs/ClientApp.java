@@ -23,7 +23,7 @@ public class ClientApp {
 		Path networkConfigPath = Paths.get(System.getProperty("network.config.path"));
 
 		Gateway.Builder builder = Gateway.createBuilder();
-		builder.identity(wallet, "appUser").networkConfig(networkConfigPath).discovery(true);
+		builder.identity(wallet, "admin").networkConfig(networkConfigPath).discovery(true);
 
 		// create a gateway connection
 		try (Gateway gateway = builder.connect()) {
@@ -34,17 +34,17 @@ public class ClientApp {
 
 			byte[] result;
 //
-//			result = contract.evaluateTransaction("queryAllCars");
-//			System.out.println(new String(result));
+			result = contract.evaluateTransaction("queryAllCars");
+			System.out.println(new String(result));
 //
 //			contract.submitTransaction("createCar", "CAR10", "VW", "Polo", "Grey", "Mary");
 ////
 //			result = contract.evaluateTransaction("queryCar", "CAR10");
 //			System.out.println(new String(result));
-//
-			contract.submitTransaction("changeCarOwner", "CAR10", "HungPT");
-			result = contract.evaluateTransaction("queryCar", "CAR10");
-			System.out.println(new String(result));
+////
+//			contract.submitTransaction("changeCarOwner", "CAR10", "HungPT");
+//			result = contract.evaluateTransaction("queryCar", "CAR10");
+//			System.out.println(new String(result));
 		}
 	}
 

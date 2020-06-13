@@ -121,11 +121,12 @@ public class HFHelper {
             byte[] result;
             if (type == RequestType.INVOKE) {
                 result = contract.submitTransaction(funcName, args);
-                resultChaincode.setData(result);
+                resultChaincode.setData(result.toString());
                 resultChaincode.setMessage("Invoke Successful");
             } else if (type == RequestType.QUERY) {
                 result = contract.evaluateTransaction(funcName, args);
-                resultChaincode.setData(result);
+                System.out.println(result);
+                resultChaincode.setData(new String(result));
                 resultChaincode.setMessage("Query Successful");
             }
         } catch (Exception e) {

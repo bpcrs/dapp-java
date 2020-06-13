@@ -5,14 +5,14 @@ import java.io.Serializable;
 public class ResultChaincode implements Serializable {
     private int code;
     private String message;
-    private Object data;
+    private String data;
 
     public ResultChaincode() {
         this.code = 200;
         this.data = "";
     }
 
-    public ResultChaincode(int code, String message, Object data) {
+    public ResultChaincode(int code, String message, String data) {
         this.code = code;
         this.message = message;
         this.data = data;
@@ -34,11 +34,11 @@ public class ResultChaincode implements Serializable {
         this.message = message;
     }
 
-    public Object getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(String data) {
         this.data = data;
     }
 }
